@@ -6,7 +6,7 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
-import { AntDesign } from "@expo/vector-icons";
+import { Fontisto, AntDesign } from "@expo/vector-icons";
 import { Shadow } from "react-native-shadow-2";
 
 // types
@@ -34,10 +34,11 @@ export const Main: FunctionComponent = () => {
 
   return (
     <View>
-      <Shadow stretch distance={4}>
+      <Shadow stretch>
         <View>
           <AntDesign name="setting" size={24} color="black" />
           <AntDesign name="search1" size={24} color="black" />
+          <Fontisto name="favorite" size={24} color="black" />
         </View>
       </Shadow>
       <FlatList

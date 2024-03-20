@@ -22,6 +22,11 @@ PODS:
     - React-NativeModulesApple
     - React-RCTAppDelegate
     - ReactCommon/turbomodule/core
+  - EXSplashScreen (0.26.4):
+    - ExpoModulesCore
+    - glog
+    - RCT-Folly (= 2022.05.16.00)
+    - React-Core
   - FBLazyVector (0.73.6)
   - FBReactNativeSpec (0.73.6):
     - RCT-Folly (= 2022.05.16.00)
@@ -1086,6 +1091,8 @@ PODS:
     - glog
     - RCT-Folly (= 2022.05.16.00)
     - React-Core
+  - RNSVG (14.1.0):
+    - React-Core
   - SocketRocket (0.6.1)
   - Yoga (1.14.0)
 
@@ -1100,6 +1107,7 @@ DEPENDENCIES:
   - ExpoLinearGradient (from `../node_modules/expo-linear-gradient/ios`)
   - ExpoLocalization (from `../node_modules/expo-localization/ios`)
   - ExpoModulesCore (from `../node_modules/expo-modules-core`)
+  - EXSplashScreen (from `../node_modules/expo-splash-screen/ios`)
   - FBLazyVector (from `../node_modules/react-native/Libraries/FBLazyVector`)
   - FBReactNativeSpec (from `../node_modules/react-native/React/FBReactNativeSpec`)
   - glog (from `../node_modules/react-native/third-party-podspecs/glog.podspec`)
@@ -1152,6 +1160,7 @@ DEPENDENCIES:
   - "RNCAsyncStorage (from `../node_modules/@react-native-async-storage/async-storage`)"
   - RNGestureHandler (from `../node_modules/react-native-gesture-handler`)
   - RNScreens (from `../node_modules/react-native-screens`)
+  - RNSVG (from `../node_modules/react-native-svg`)
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
 SPEC REPOS:
@@ -1181,6 +1190,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/expo-localization/ios"
   ExpoModulesCore:
     :path: "../node_modules/expo-modules-core"
+  EXSplashScreen:
+    :path: "../node_modules/expo-splash-screen/ios"
   FBLazyVector:
     :path: "../node_modules/react-native/Libraries/FBLazyVector"
   FBReactNativeSpec:
@@ -1280,6 +1291,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-gesture-handler"
   RNScreens:
     :path: "../node_modules/react-native-screens"
+  RNSVG:
+    :path: "../node_modules/react-native-svg"
   Yoga:
     :path: "../node_modules/react-native/ReactCommon/yoga"
 
@@ -1294,6 +1307,7 @@ SPEC CHECKSUMS:
   ExpoLinearGradient: 4ad1449a2408e0435ac959076562b3921f2e32a1
   ExpoLocalization: f5f5d71dc0c9514d3d77b2771144f6fed6398d04
   ExpoModulesCore: 61dc57c6e2a35f2f84baf488146db624e03af4cd
+  EXSplashScreen: 5538a51beec451bf1fcf5198e3062790e2534df3
   FBLazyVector: f64d1e2ea739b4d8f7e4740cde18089cd97fe864
   FBReactNativeSpec: 9f2b8b243131565335437dba74923a8d3015e780
   fmt: ff9d55029c625d3757ed641535fd4a75fedc7ce9
@@ -1345,9 +1359,10 @@ SPEC CHECKSUMS:
   RNCAsyncStorage: 618d03a5f52fbccb3d7010076bc54712844c18ef
   RNGestureHandler: 15c6ef51acba34c49ff03003806cf5dd6098f383
   RNScreens: 17e2f657f1b09a71ec3c821368a04acbb7ebcb46
+  RNSVG: ba3e7232f45e34b7b47e74472386cf4e1a676d0a
   SocketRocket: f32cd54efbe0f095c4d7594881e52619cfe80b17
   Yoga: 805bf71192903b20fc14babe48080582fee65a80
 
-PODFILE CHECKSUM: 720c642efdcc897d3fe56191ef0a496f49c67507
+PODFILE CHECKSUM: 777e4a8eb4fa06318029a2a86546ace9d4841a3e
 
 COCOAPODS: 1.15.2

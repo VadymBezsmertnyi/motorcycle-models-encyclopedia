@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "motorcyclemodelsencyclopedia.app"
-               BlueprintName = "motorcyclemodelsencyclopedia"
-               ReferencedContainer = "container:motorcyclemodelsencyclopedia.xcodeproj">
+               BuildableName = "MotorcycleModelsEncyclopedia.app"
+               BlueprintName = "MotorcycleModelsEncyclopedia"
+               ReferencedContainer = "container:MotorcycleModelsEncyclopedia.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "motorcyclemodelsencyclopediaTests.xctest"
-               BlueprintName = "motorcyclemodelsencyclopediaTests"
-               ReferencedContainer = "container:motorcyclemodelsencyclopedia.xcodeproj">
+               BuildableName = "MotorcycleModelsEncyclopediaTests.xctest"
+               BlueprintName = "MotorcycleModelsEncyclopediaTests"
+               ReferencedContainer = "container:MotorcycleModelsEncyclopedia.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,9 +55,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "motorcyclemodelsencyclopedia.app"
-            BlueprintName = "motorcyclemodelsencyclopedia"
-            ReferencedContainer = "container:motorcyclemodelsencyclopedia.xcodeproj">
+            BuildableName = "MotorcycleModelsEncyclopedia.app"
+            BlueprintName = "MotorcycleModelsEncyclopedia"
+            ReferencedContainer = "container:MotorcycleModelsEncyclopedia.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "motorcyclemodelsencyclopedia.app"
-            BlueprintName = "motorcyclemodelsencyclopedia"
-            ReferencedContainer = "container:motorcyclemodelsencyclopedia.xcodeproj">
+            BuildableName = "MotorcycleModelsEncyclopedia.app"
+            BlueprintName = "MotorcycleModelsEncyclopedia"
+            ReferencedContainer = "container:MotorcycleModelsEncyclopedia.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
