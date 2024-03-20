@@ -1,5 +1,8 @@
 import React, { FunctionComponent, useMemo } from "react";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import {
+  NativeStackNavigationOptions,
+  createNativeStackNavigator,
+} from "@react-navigation/native-stack";
 
 // types
 import { RootMainScreensParamList } from "./Navigators.types";
@@ -13,7 +16,15 @@ import { PATHS_MAIN_SCREENS } from "./Navigators.constants";
 const Stack = createNativeStackNavigator<RootMainScreensParamList>();
 
 export const Navigators: FunctionComponent = () => {
-  const screenOptions = useMemo(() => ({ headerShown: false }), []);
+  const screenOptions: NativeStackNavigationOptions = useMemo(
+    () => ({
+      headerShown: false,
+      contentStyle: {
+        backgroundColor: "white",
+      },
+    }),
+    []
+  );
   return (
     <Stack.Navigator
       screenOptions={screenOptions}
