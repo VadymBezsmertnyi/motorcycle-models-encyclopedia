@@ -16,7 +16,10 @@
       "runtimeVersion": "1.0.0",
       "buildNumber": "1",
       "supportsTablet": false,
-      "bundleIdentifier": "com.fe1233dd.motorcycle-models-encyclopedia"
+      "bundleIdentifier": "com.fe1233dd.motorcycle-models-encyclopedia",
+      "config": {
+        "usesNonExemptEncryption": false
+      }
     },
     "android": {
       "adaptiveIcon": {
@@ -32,6 +35,7 @@
         "projectId": "37d665cc-bd27-4594-97f3-a3d8f05cacb9"
       }
     },
-    "owner": "fe1233dd"
+    "owner": "fe1233dd",
+    "plugins": ["expo-localization"]
   }
 }

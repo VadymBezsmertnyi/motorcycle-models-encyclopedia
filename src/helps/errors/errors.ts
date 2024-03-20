@@ -1,11 +1,11 @@
-import type { InputPayload, Payload } from './errors.type';
+import type { InputPayload, Payload } from "./errors.types";
 
 export class ValidationError extends Error {
   payload: Payload;
 
   constructor(message: string, payload: Payload = {}) {
     super(message);
-    this.name = 'ValidationError';
+    this.name = "ValidationError";
     this.message = message;
     this.payload = payload;
     if (payload.stack) {
@@ -30,7 +30,7 @@ export class PermissionError extends Error {
 
   constructor(message: string, payload: Payload = {}) {
     super(message);
-    this.name = 'PermissionError';
+    this.name = "PermissionError";
     this.message = message;
     this.payload = payload;
     if (payload.stack) {
@@ -55,7 +55,7 @@ export class ApiError extends Error {
 
   constructor(message: string, payload: Payload = {}) {
     super(message);
-    this.name = 'ApiError';
+    this.name = "ApiError";
     this.message = message;
     this.payload = payload;
     if (payload.stack) {
@@ -80,7 +80,7 @@ export class PropertyError extends Error {
 
   constructor(message: string, payload: InputPayload = {}) {
     super(message);
-    this.name = 'PropertyError';
+    this.name = "PropertyError";
     this.message = message;
     this.payload = payload;
   }
@@ -102,7 +102,7 @@ export class FatalError extends Error {
 
   constructor(message: string, payload: Payload = {}) {
     super(`Fatal error: ${message}`);
-    this.name = 'FatalError';
+    this.name = "FatalError";
     this.message = message;
     this.payload = payload;
     if (payload.stack) {
@@ -122,8 +122,18 @@ export class FatalError extends Error {
   }
 }
 
-export type Errors = Error | PermissionError | ApiError | ValidationError | FatalError | null;
-export type ExtendedError = FatalError | ApiError | PermissionError | ValidationError;
+export type Errors =
+  | Error
+  | PermissionError
+  | ApiError
+  | ValidationError
+  | FatalError
+  | null;
+export type ExtendedError =
+  | FatalError
+  | ApiError
+  | PermissionError
+  | ValidationError;
 
 export function isExtendedError(e: unknown): e is ExtendedError {
   return (
@@ -137,7 +147,7 @@ export function isExtendedError(e: unknown): e is ExtendedError {
 export function unknownToError(rawError: unknown): Error | ExtendedError {
   if (isExtendedError(rawError)) return rawError;
   if (rawError instanceof Error) return rawError;
-  if (typeof rawError === 'string') return new Error(rawError);
+  if (typeof rawError === "string") return new Error(rawError);
 
-  return new Error('unknown Error with no message, stack and payload');
+  return new Error("unknown Error with no message, stack and payload");
 }
