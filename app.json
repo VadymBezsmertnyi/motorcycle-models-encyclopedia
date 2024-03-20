@@ -11,11 +11,12 @@
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
-      "supportsTablet": true
+      "runtimeVersion": "1.0.0",
+      "buildNumber": "1",
+      "supportsTablet": false,
+      "bundleIdentifier": "com.fe1233dd.motorcycle-models-encyclopedia"
     },
     "android": {
       "adaptiveIcon": {

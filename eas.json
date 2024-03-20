@@ -1,0 +1,30 @@
+{
+  "cli": {
+    "version": ">= 4.1.2"
+  },
+  "build": {
+    "development": {
+      "developmentClient": true,
+      "distribution": "internal"
+    },
+    "previewIos": {
+      "channel": "main",
+      "android": {
+        "buildType": "apk"
+      }
+    },
+    "previewAndroid": {
+      "channel": "main",
+      "android": {
+        "buildType": "app-bundle"
+      },
+      "ios": {
+        "autoIncrement": "buildNumber"
+      }
+    },
+    "preview3": {
+      "developmentClient": true
+    },
+    "production": {}
+  }
+}
