@@ -31,6 +31,7 @@ import backgroundImage from "../../../assets/images/background.jpeg";
 
 // styles
 import { styles } from "./Main.styles";
+import { Header } from "../../components/Header/Header";
 
 type MainProps = {
   navigation: NativeStackNavigationProp<RootMainScreensParamList>;
@@ -77,55 +78,15 @@ export const Main: FunctionComponent<MainProps> = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <Image source={backgroundImage} style={styles.imageBackground} />
-      <Shadow stretch>
-        <View style={styles.containerHeader}>
-          <View style={styles.buttonsHeader}>
-            <View style={styles.partHeader}>
-              <TouchableOpacity
-                style={styles.buttonHeader}
-                onPress={() => {
-                  navigation.navigate(PATHS_MAIN_SCREENS.favorites);
-                }}
-              >
-                <Fontisto name="favorite" size={30} color="#0d1138" />
-              </TouchableOpacity>
-              <TouchableOpacity
-                style={styles.buttonHeader}
-                onPress={() => {
-                  navigation.navigate(PATHS_MAIN_SCREENS.settings);
-                }}
-              >
-                <AntDesign name="setting" size={30} color="#0d1138" />
-              </TouchableOpacity>
-            </View>
-            <TouchableOpacity
-              style={styles.buttonHeader}
-              onPress={() => {
-                setIsShowSearch((state) => !state);
-              }}
-            >
-              <AntDesign
-                name="search1"
-                size={30}
-                color={isShowSearch ? "orange" : "black"}
-              />
-            </TouchableOpacity>
-          </View>
-          {isShowSearch && (
-            <Input
-              value={valueSearch}
-              placeholder={i18n._("Searching for a motorcycle brand or model")}
-              onChange={setValueSearch}
-            />
-          )}
-          <Text style={styles.infoHeader}>
-            {i18n._(
-              "Displayed {amountShowMotorcycles} motorcycles out of {amountAllMotorcycles}",
-              { amountShowMotorcycles, amountAllMotorcycles }
-            )}
-          </Text>
-        </View>
-      </Shadow>
+      <Header
+        navigation={navigation}
+        isShowSearch={isShowSearch}
+        setIsShowSearch={setIsShowSearch}
+        valueSearch={valueSearch}
+        setValueSearch={setValueSearch}
+        amountShowMotorcycles={amountShowMotorcycles}
+        amountAllMotorcycles={amountAllMotorcycles}
+      />
       <FlatList
         data={showMotorcycles}
         renderItem={renderItem}

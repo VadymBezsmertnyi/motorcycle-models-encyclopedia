@@ -1,29 +1,24 @@
 import React, { FunctionComponent, useContext, useMemo, useState } from "react";
-import {
-  FlatList,
-  Image,
-  ListRenderItem,
-  Text,
-  TouchableOpacity,
-  View,
-} from "react-native";
+import { FlatList, Image, ListRenderItem, View } from "react-native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
-import { AntDesign } from "@expo/vector-icons";
 
 // types
 import { RootMainScreensParamList } from "../../navigation/Navigators.types";
+import { MotorcycleType } from "../../providers/MotorcyclesProvider/MotorcyclesProvider.types";
+
+// providers
+import { localesContext } from "../../../localization/localization.provider";
+import { favoritesContext } from "../../providers/FavoritesProvider/FavoritesProvider";
+
+// components
+import { RenderItem } from "../../components/RenderItem/RenderItem";
+import { Header } from "../../components/Header/Header";
 
 // images
 import backgroundImage from "../../../assets/images/backgroundFavorites.jpeg";
 
 // styles
 import { styles } from "./Favorites.styles";
-import { Shadow } from "react-native-shadow-2";
-import { localesContext } from "../../../localization/localization.provider";
-import { MotorcycleType } from "../../providers/MotorcyclesProvider/MotorcyclesProvider.types";
-import { RenderItem } from "../../components/RenderItem/RenderItem";
-import { Input } from "../../components/Input/Input";
-import { favoritesContext } from "../../providers/FavoritesProvider/FavoritesProvider";
 
 type FavoritesProps = {
   navigation: NativeStackNavigationProp<RootMainScreensParamList>;
@@ -69,46 +64,17 @@ export const Favorites: FunctionComponent<FavoritesProps> = ({
   return (
     <View style={styles.container}>
       <Image source={backgroundImage} style={styles.imageBackground} />
-      <Shadow stretch>
-        <View style={styles.containerHeader}>
-          <View style={styles.buttonsHeader}>
-            <TouchableOpacity
-              style={styles.buttonHeader}
-              onPress={() => {
-                navigation.goBack();
-              }}
-            >
-              <AntDesign name="arrowleft" size={30} color={"#0d1138"} />
-            </TouchableOpacity>
-            <Text style={styles.titleHeader}>{i18n._("Favorites")}</Text>
-            <TouchableOpacity
-              style={styles.buttonHeader}
-              onPress={() => {
-                setIsShowSearch((state) => !state);
-              }}
-            >
-              <AntDesign
-                name="search1"
-                size={30}
-                color={isShowSearch ? "orange" : "black"}
-              />
-            </TouchableOpacity>
-          </View>
-          {isShowSearch && (
-            <Input
-              value={valueSearch}
-              placeholder={i18n._("Searching for a motorcycle brand or model")}
-              onChange={setValueSearch}
-            />
-          )}
-          <Text style={styles.infoHeader}>
-            {i18n._(
-              "Displayed {amountShowMotorcycles} motorcycles out of {amountAllMotorcycles}",
-              { amountShowMotorcycles, amountAllMotorcycles }
-            )}
-          </Text>
-        </View>
-      </Shadow>
+      <Header
+        navigation={navigation}
+        isShowSearch={isShowSearch}
+        setIsShowSearch={setIsShowSearch}
+        valueSearch={valueSearch}
+        setValueSearch={setValueSearch}
+        amountShowMotorcycles={amountShowMotorcycles}
+        amountAllMotorcycles={amountAllMotorcycles}
+        isBack
+        title={i18n._("Favorites")}
+      />
       <FlatList
         data={[]}
         renderItem={renderItem}
