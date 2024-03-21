@@ -13,6 +13,118 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
+#. js-lingui-explicit-id
+msgid "Searching for a motorcycle brand or model"
+msgstr "Пошук марки або моделі мотоцикла"
+
+#. js-lingui-explicit-id
+msgid "Displayed {amountShowMotorcycles} motorcycles out of {amountAllMotorcycles}"
+msgstr "Показано {amountShowMotorcycles} мотоциклів з {amountAllMotorcycles}"
+
+#. js-lingui-explicit-id
+msgid "Brand"
+msgstr "Марка"
+
+#. js-lingui-explicit-id
+msgid "Model"
+msgstr "Модель"
+
+#. js-lingui-explicit-id
+msgid "Year"
+msgstr "Рік"
+
+#. js-lingui-explicit-id
+msgid "Style"
+msgstr "Стиль"
+
+#. js-lingui-explicit-id
+msgid "Favorites"
+msgstr "Улюблені"
+
+#. js-lingui-explicit-id
+msgid "No data available"
+msgstr "Дані відсутні"
+
+#. js-lingui-explicit-id
+msgid "year the motorcycle was built"
+msgstr "рік виготовлення мотоцикла"
+
+#. js-lingui-explicit-id
+msgid "Category"
+msgstr "Категорія"
+
+#. js-lingui-explicit-id
+msgid "sub-class of motorcycle in the market (style)"
+msgstr "підклас мотоцикла на ринку (стиль)"
+
+#. js-lingui-explicit-id
+msgid "Rating"
+msgstr "Рейтинг"
+
+#. js-lingui-explicit-id
+msgid "review average out of 5 stars"
+msgstr "середній рейтинг з 5 зірок"
+
+#. js-lingui-explicit-id
+msgid "Displacement (ccm)"
+msgstr "Об'єм (куб. см)"
+
+#. js-lingui-explicit-id
+msgid "engine size of the motorcycle in cubic centimeters (ccm)"
+msgstr "об'єм двигуна мотоцикла у кубічних сантиметрах (куб. см)"
+
+#. js-lingui-explicit-id
+msgid "Power (hp)"
+msgstr "Потужність (к.с.)"
+
+#. js-lingui-explicit-id
+msgid "max power output in horsepower (hp)"
+msgstr "максимальна потужність у кінських силах (к.с.)"
+
+#. js-lingui-explicit-id
+msgid "Torque (Nm)"
+msgstr "Крутний момент (Нм)"
+
+#. js-lingui-explicit-id
+msgid "max torque in newton-meters (Nm)"
+msgstr "максимальний крутний момент у ньютон-метрах (Нм)"
+
+#. js-lingui-explicit-id
+msgid "Engine cylinder"
+msgstr "Кількість циліндрів двигуна"
+
+#. js-lingui-explicit-id
+msgid "number of cylinders in the engine as well as configuration"
+msgstr "кількість циліндрів у двигуні, а також його конфігурація"
+
+#. js-lingui-explicit-id
+msgid "Engine stroke"
+msgstr "Хід двигуна"
+
+#. js-lingui-explicit-id
+msgid "number of stages to complete one power stroke of the engine"
+msgstr "кількість етапів для завершення одного робочого ходу двигуна"
+
+#. js-lingui-explicit-id
+msgid "Transmission type"
+msgstr "Тип трансмісії"
+
+#. js-lingui-explicit-id
+msgid "Types include: hydraulic automatic transmission, continuously variable transmission, and dual-clutch automatic transmissions"
+msgstr "Типи включають: гідравлічну автоматичну трансмісію, безступінчасту трансмісію та двоспособову автоматичну трансмісію"
+
+#. js-lingui-explicit-id
+msgid "Settings"
+msgstr "Налаштування"
+
+#. js-lingui-explicit-id
+msgid "Language"
+msgstr "Мова"
+
+#. js-lingui-explicit-id
+msgid "Change to {changeLanguage}"
+msgstr "Змінити на {changeLanguage}"
+
 msgid "Error key token: Secret key is not defined in the environment variables"
 msgstr "Помилка ключа токена: Секретний ключ не визначений у змінних середовища"
 

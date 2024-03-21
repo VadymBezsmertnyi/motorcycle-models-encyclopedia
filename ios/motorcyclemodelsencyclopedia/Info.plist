@@ -27,6 +27,7 @@
       <dict>
         <key>CFBundleURLSchemes</key>
         <array>
+          <string>motorcycle-models-encyclopedia</string>
           <string>com.fe1233dd.motorcycle-models-encyclopedia</string>
         </array>
       </dict>

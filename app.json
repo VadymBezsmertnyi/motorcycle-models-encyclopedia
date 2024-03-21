@@ -6,14 +6,13 @@
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
+    "scheme": "motorcycle-models-encyclopedia",
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "cover",
       "backgroundColor": "#ffffff"
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
       "runtimeVersion": "1.0.0",
       "buildNumber": "1",
@@ -41,9 +40,7 @@
       }
     },
     "owner": "fe1233dd",
-    "plugins": [
-      "expo-localization"
-    ],
+    "plugins": ["expo-localization"],
     "updates": {
       "url": "https://u.expo.dev/37d665cc-bd27-4594-97f3-a3d8f05cacb9"
     }

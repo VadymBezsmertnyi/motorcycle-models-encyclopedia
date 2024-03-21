@@ -13,6 +13,118 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
+#. js-lingui-explicit-id
+msgid "Searching for a motorcycle brand or model"
+msgstr "Searching for a motorcycle brand or model"
+
+#. js-lingui-explicit-id
+msgid "Displayed {amountShowMotorcycles} motorcycles out of {amountAllMotorcycles}"
+msgstr "Displayed {amountShowMotorcycles} motorcycles out of {amountAllMotorcycles}"
+
+#. js-lingui-explicit-id
+msgid "Brand"
+msgstr "Brand"
+
+#. js-lingui-explicit-id
+msgid "Model"
+msgstr "Model"
+
+#. js-lingui-explicit-id
+msgid "Year"
+msgstr "Year"
+
+#. js-lingui-explicit-id
+msgid "Style"
+msgstr "Style"
+
+#. js-lingui-explicit-id
+msgid "Favorites"
+msgstr "Favorites"
+
+#. js-lingui-explicit-id
+msgid "No data available"
+msgstr "No data available"
+
+#. js-lingui-explicit-id
+msgid "year the motorcycle was built"
+msgstr "year the motorcycle was built"
+
+#. js-lingui-explicit-id
+msgid "Category"
+msgstr "Category"
+
+#. js-lingui-explicit-id
+msgid "sub-class of motorcycle in the market (style)"
+msgstr "sub-class of motorcycle in the market (style)"
+
+#. js-lingui-explicit-id
+msgid "Rating"
+msgstr "Rating"
+
+#. js-lingui-explicit-id
+msgid "review average out of 5 stars"
+msgstr "review average out of 5 stars"
+
+#. js-lingui-explicit-id
+msgid "Displacement (ccm)"
+msgstr "Displacement (ccm)"
+
+#. js-lingui-explicit-id
+msgid "engine size of the motorcycle in cubic centimeters (ccm)"
+msgstr "engine size of the motorcycle in cubic centimeters (ccm)"
+
+#. js-lingui-explicit-id
+msgid "Power (hp)"
+msgstr "Power (hp)"
+
+#. js-lingui-explicit-id
+msgid "max power output in horsepower (hp)"
+msgstr "max power output in horsepower (hp)"
+
+#. js-lingui-explicit-id
+msgid "Torque (Nm)"
+msgstr "Torque (Nm)"
+
+#. js-lingui-explicit-id
+msgid "max torque in newton-meters (Nm)"
+msgstr "max torque in newton-meters (Nm)"
+
+#. js-lingui-explicit-id
+msgid "Engine cylinder"
+msgstr "Engine cylinder"
+
+#. js-lingui-explicit-id
+msgid "number of cylinders in the engine as well as configuration"
+msgstr "number of cylinders in the engine as well as configuration"
+
+#. js-lingui-explicit-id
+msgid "Engine stroke"
+msgstr "Engine stroke"
+
+#. js-lingui-explicit-id
+msgid "number of stages to complete one power stroke of the engine"
+msgstr "number of stages to complete one power stroke of the engine"
+
+#. js-lingui-explicit-id
+msgid "Transmission type"
+msgstr "Transmission type"
+
+#. js-lingui-explicit-id
+msgid "Types include: hydraulic automatic transmission, continuously variable transmission, and dual-clutch automatic transmissions"
+msgstr "Types include: hydraulic automatic transmission, continuously variable transmission, and dual-clutch automatic transmissions"
+
+#. js-lingui-explicit-id
+msgid "Settings"
+msgstr "Settings"
+
+#. js-lingui-explicit-id
+msgid "Language"
+msgstr "Language"
+
+#. js-lingui-explicit-id
+msgid "Change to {changeLanguage}"
+msgstr "Change to {changeLanguage}"
+
 msgid "Error key token: Secret key is not defined in the environment variables"
 msgstr "Error key token: Secret key is not defined in the environment variables"
 
