@@ -26,9 +26,10 @@ type HeaderProps = {
   amountShowMotorcycles?: number;
   amountAllMotorcycles?: number;
   valueSearch: string;
-  setValueSearch: React.Dispatch<React.SetStateAction<string>>;
+  setValueSearch?: React.Dispatch<React.SetStateAction<string>>;
   isBack?: boolean;
   title?: string;
+  isHideSearch?: boolean;
 };
 
 export const Header: FunctionComponent<HeaderProps> = ({
@@ -41,6 +42,7 @@ export const Header: FunctionComponent<HeaderProps> = ({
   setValueSearch,
   isBack = false,
   title,
+  isHideSearch = false,
 }) => {
   const { i18n } = useContext(localesContext);
 
@@ -77,29 +79,31 @@ export const Header: FunctionComponent<HeaderProps> = ({
               </TouchableOpacity>
             </View>
           )}
-          {title && (
-            <Text style={styles.titleHeader}>{i18n._("Favorites")}</Text>
+          {title && <Text style={styles.titleHeader}>{title}</Text>}
+          {!isHideSearch ? (
+            <TouchableOpacity
+              style={styles.buttonHeader}
+              onPress={() => {
+                setIsShowSearch((state) => !state);
+              }}
+            >
+              <AntDesign
+                name="search1"
+                size={30}
+                color={isShowSearch ? "orange" : "black"}
+              />
+            </TouchableOpacity>
+          ) : (
+            <View style={styles.containerEmpty} />
           )}
-          <TouchableOpacity
-            style={styles.buttonHeader}
-            onPress={() => {
-              setIsShowSearch((state) => !state);
-            }}
-          >
-            <AntDesign
-              name="search1"
-              size={30}
-              color={isShowSearch ? "orange" : "black"}
-            />
-          </TouchableOpacity>
         </View>
-        {isShowSearch && (
+        {isShowSearch && setValueSearch ? (
           <Input
             value={valueSearch}
             placeholder={i18n._("Searching for a motorcycle brand or model")}
             onChange={setValueSearch}
           />
-        )}
+        ) : null}
         {amountShowMotorcycles !== null && amountAllMotorcycles !== null ? (
           <Text style={styles.infoHeader}>
             {i18n._(

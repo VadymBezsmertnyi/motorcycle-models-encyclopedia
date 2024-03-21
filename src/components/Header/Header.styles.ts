@@ -23,4 +23,5 @@ export const styles = StyleSheet.create({
     textTransform: "uppercase",
   },
   infoHeader: { fontSize: 12, color: "gray" },
+  containerEmpty: { width: 50 },
 });
