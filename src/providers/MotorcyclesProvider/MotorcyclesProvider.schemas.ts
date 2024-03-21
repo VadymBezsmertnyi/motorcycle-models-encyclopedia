@@ -1,10 +1,13 @@
 import z from "zod";
+import { stylesMotorcycle } from "./MotorcyclesProvider.constants";
+
+export const stylesMotorcycleSchema = z.enum(stylesMotorcycle);
 
 export const motorcycleSchema = z.object({
   id: z.number(),
   Bore: z.string(),
   Brand: z.string(),
-  Category: z.string(),
+  Category: stylesMotorcycleSchema,
   ColorOptions: z.string(),
   CoolingSystem: z.string(),
   Displacement: z.string(),
@@ -18,7 +21,7 @@ export const motorcycleSchema = z.object({
   FuelControl: z.string(),
   FuelSystem: z.string(),
   Gearbox: z.string(),
-  Model: z.string(),
+  Model: z.string().or(z.number()),
   Power: z.number(),
   Rating: z.number(),
   RearBrakes: z.string(),
