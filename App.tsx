@@ -8,6 +8,7 @@ import * as SplashScreen from "expo-splash-screen";
 // providers
 import LocalesProvider from "./localization/localization.provider";
 import { MotorcyclesProvider } from "./src/providers/MotorcyclesProvider/MotorcyclesProvider";
+import { FavoritesProvider } from "./src/providers/FavoritesProvider/FavoritesProvider";
 
 // navigator
 import { Navigators } from "./src/navigation/Navigators";
@@ -42,7 +43,9 @@ export default function App() {
         <NavigationContainer>
           <LocalesProvider>
             <MotorcyclesProvider>
-              <Navigators />
+              <FavoritesProvider>
+                <Navigators />
+              </FavoritesProvider>
             </MotorcyclesProvider>
           </LocalesProvider>
         </NavigationContainer>

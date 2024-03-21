@@ -1,4 +1,4 @@
-import React, { useMemo, FunctionComponent, useEffect } from "react";
+import React, { useMemo, FunctionComponent } from "react";
 
 // constants
 import motoJSON from "../../../assets/db/motoDb.json";
@@ -40,12 +40,6 @@ export const MotorcyclesProvider: FunctionComponent<
     () => ({ motorcyclesDB, brans }),
     [motorcyclesDB, brans]
   );
-
-  useEffect(() => {
-    console.log("motoJSON", motorcyclesDB[0]);
-    console.log("motorcyclesDB.length", motorcyclesDB.length);
-    console.log("brans", brans);
-  }, []);
 
   return (
     <motorcyclesContext.Provider value={contextValue}>

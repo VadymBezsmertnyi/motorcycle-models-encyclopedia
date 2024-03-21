@@ -22,12 +22,15 @@ import { localesContext } from "../../../localization/localization.provider";
 // components
 import { Input } from "../../components/Input/Input";
 
+// helps
+import { getImageTypeMoto } from "../../helps/images";
+
 // constants
 import { PATHS_MAIN_SCREENS } from "../../navigation/Navigators.constants";
 
 // styles
 import { styles } from "./Main.styles";
-import { getImageTypeMoto } from "../../helps/images";
+import { RenderItem } from "../../components/RenderItem/RenderItem";
 
 type MainProps = {
   navigation: NativeStackNavigationProp<RootMainScreensParamList>;
@@ -65,49 +68,9 @@ export const Main: FunctionComponent<MainProps> = ({ navigation }) => {
     [motorcyclesDB]
   );
 
-  console.log(
-    motorcyclesDB.reduce(
-      (state, next) =>
-        state.includes(next.Category) ? state : [...state, next.Category],
-      [] as string[]
-    )
-  );
-
   const renderItem: ListRenderItem<MotorcycleType> = ({ item }) => {
     return (
-      <TouchableOpacity
-        key={`moto-${item.id}`}
-        style={styles.containerItem}
-        onPress={() => {
-          navigation.navigate(PATHS_MAIN_SCREENS.item, { motoId: item.id });
-        }}
-      >
-        <Image
-          source={getImageTypeMoto(item.Category)}
-          style={{ position: "absolute", width: "100%", height: 200 }}
-        />
-        <Shadow stretch>
-          <View style={styles.containerInfoItem}>
-            <View style={styles.partItem}>
-              <Text style={styles.titleItem}>
-                Brand: <Text style={styles.subTitle}>{item.Brand}</Text>
-              </Text>
-              <Text style={styles.titleItem}>
-                Model: <Text style={styles.subTitle}>{item.Model}</Text>
-              </Text>
-            </View>
-            <View style={styles.partItem}>
-              <Text style={styles.titleItem}>
-                Year: <Text style={styles.subTitle}>{item.Year}</Text>
-              </Text>
-              <Text style={styles.titleItem}>
-                style: <Text style={styles.subTitle}>{item.Category}</Text>
-              </Text>
-            </View>
-            <AntDesign name="caretright" size={24} color="black" />
-          </View>
-        </Shadow>
-      </TouchableOpacity>
+      <RenderItem key={`moto-${item.id}`} navigation={navigation} item={item} />
     );
   };
 
@@ -154,7 +117,7 @@ export const Main: FunctionComponent<MainProps> = ({ navigation }) => {
               onChange={setValueSearch}
             />
           )}
-          <Text style={{ fontSize: 12, color: "gray" }}>
+          <Text style={styles.infoHeader}>
             {i18n._(
               "Displayed {amountShowMotorcycles} motorcycles out of {amountAllMotorcycles}",
               { amountShowMotorcycles, amountAllMotorcycles }
