@@ -32,40 +32,43 @@ export const RenderItem: FunctionComponent<RenderItemProps> = ({
   const { i18n } = useContext(localesContext);
 
   return (
-    <TouchableOpacity
-      style={styles.containerItem}
-      onPress={() => {
-        navigation.navigate(PATHS_MAIN_SCREENS.item, { motoId: item.id });
-      }}
-    >
-      <Image
-        source={getImageTypeMoto(item.Category)}
-        style={{ position: "absolute", width: "100%", height: 200 }}
-      />
-      <Shadow stretch>
-        <View style={styles.containerInfoItem}>
-          <View style={styles.partItem}>
-            <Text style={styles.titleItem}>
-              {i18n._(`Brand`)}:{" "}
-              <Text style={styles.subTitle}>{item.Brand}</Text>
-            </Text>
-            <Text style={styles.titleItem}>
-              {i18n._(`Model`)}:{" "}
-              <Text style={styles.subTitle}>{item.Model}</Text>
-            </Text>
+    <Shadow stretch>
+      <TouchableOpacity
+        style={styles.containerItem}
+        onPress={() => {
+          navigation.navigate(PATHS_MAIN_SCREENS.item, { motoId: item.id });
+        }}
+      >
+        <Image
+          source={getImageTypeMoto(item.Category)}
+          style={{ position: "absolute", width: "100%", height: 200 }}
+        />
+        <Shadow stretch>
+          <View style={styles.containerInfoItem}>
+            <View style={styles.partItem}>
+              <Text style={styles.titleItem}>
+                {i18n._(`Brand`)}:{" "}
+                <Text style={styles.subTitle}>{item.Brand}</Text>
+              </Text>
+              <Text style={styles.titleItem}>
+                {i18n._(`Model`)}:{" "}
+                <Text style={styles.subTitle}>{item.Model}</Text>
+              </Text>
+            </View>
+            <View style={styles.partItem}>
+              <Text style={styles.titleItem}>
+                {i18n._(`Year`)}:{" "}
+                <Text style={styles.subTitle}>{item.Year}</Text>
+              </Text>
+              <Text style={styles.titleItem}>
+                {i18n._(`Style`)}:{" "}
+                <Text style={styles.subTitle}>{item.Category}</Text>
+              </Text>
+            </View>
+            <AntDesign name="caretright" size={24} color="black" />
           </View>
-          <View style={styles.partItem}>
-            <Text style={styles.titleItem}>
-              {i18n._(`Year`)}: <Text style={styles.subTitle}>{item.Year}</Text>
-            </Text>
-            <Text style={styles.titleItem}>
-              {i18n._(`Style`)}:{" "}
-              <Text style={styles.subTitle}>{item.Category}</Text>
-            </Text>
-          </View>
-          <AntDesign name="caretright" size={24} color="black" />
-        </View>
-      </Shadow>
-    </TouchableOpacity>
+        </Shadow>
+      </TouchableOpacity>
+    </Shadow>
   );
 };

@@ -21,16 +21,16 @@ import { localesContext } from "../../../localization/localization.provider";
 
 // components
 import { Input } from "../../components/Input/Input";
-
-// helps
-import { getImageTypeMoto } from "../../helps/images";
+import { RenderItem } from "../../components/RenderItem/RenderItem";
 
 // constants
 import { PATHS_MAIN_SCREENS } from "../../navigation/Navigators.constants";
 
+// images
+import backgroundImage from "../../../assets/images/background.jpeg";
+
 // styles
 import { styles } from "./Main.styles";
-import { RenderItem } from "../../components/RenderItem/RenderItem";
 
 type MainProps = {
   navigation: NativeStackNavigationProp<RootMainScreensParamList>;
@@ -76,6 +76,7 @@ export const Main: FunctionComponent<MainProps> = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
+      <Image source={backgroundImage} style={styles.imageBackground} />
       <Shadow stretch>
         <View style={styles.containerHeader}>
           <View style={styles.buttonsHeader}>
@@ -128,15 +129,10 @@ export const Main: FunctionComponent<MainProps> = ({ navigation }) => {
       <FlatList
         data={showMotorcycles}
         renderItem={renderItem}
-        onEndReached={(info) => {
-          console.log("info", info);
+        onEndReached={() => {
           setAmountShow((state) => state + 20);
         }}
-        contentContainerStyle={{
-          padding: 15,
-          paddingTop: 20,
-          gap: 6,
-        }}
+        contentContainerStyle={styles.containerList}
       />
     </View>
   );

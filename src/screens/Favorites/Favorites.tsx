@@ -1,6 +1,7 @@
 import React, { FunctionComponent, useContext, useMemo, useState } from "react";
 import {
   FlatList,
+  Image,
   ListRenderItem,
   Text,
   TouchableOpacity,
@@ -11,6 +12,9 @@ import { AntDesign } from "@expo/vector-icons";
 
 // types
 import { RootMainScreensParamList } from "../../navigation/Navigators.types";
+
+// images
+import backgroundImage from "../../../assets/images/backgroundFavorites.jpeg";
 
 // styles
 import { styles } from "./Favorites.styles";
@@ -64,6 +68,7 @@ export const Favorites: FunctionComponent<FavoritesProps> = ({
 
   return (
     <View style={styles.container}>
+      <Image source={backgroundImage} style={styles.imageBackground} />
       <Shadow stretch>
         <View style={styles.containerHeader}>
           <View style={styles.buttonsHeader}>
@@ -107,15 +112,10 @@ export const Favorites: FunctionComponent<FavoritesProps> = ({
       <FlatList
         data={[]}
         renderItem={renderItem}
-        onEndReached={(info) => {
-          console.log("info", info);
+        onEndReached={() => {
           setAmountShow((state) => state + 20);
         }}
-        contentContainerStyle={{
-          padding: 15,
-          paddingTop: 20,
-          gap: 6,
-        }}
+        contentContainerStyle={styles.containerList}
       />
     </View>
   );
