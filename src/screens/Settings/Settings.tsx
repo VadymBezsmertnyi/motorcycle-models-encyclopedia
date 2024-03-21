@@ -43,9 +43,6 @@ export const Settings: FunctionComponent<SettingsProps> = ({ navigation }) => {
       <Header
         navigation={navigation}
         isShowSearch={false}
-        setIsShowSearch={function (value: React.SetStateAction<boolean>): void {
-          throw new Error("Function not implemented.");
-        }}
         valueSearch={""}
         isBack
         isHideSearch

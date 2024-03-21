@@ -22,7 +22,7 @@ import { styles } from "./Header.styles";
 type HeaderProps = {
   navigation: NativeStackNavigationProp<RootMainScreensParamList>;
   isShowSearch: boolean;
-  setIsShowSearch: React.Dispatch<React.SetStateAction<boolean>>;
+  setIsShowSearch?: React.Dispatch<React.SetStateAction<boolean>>;
   amountShowMotorcycles?: number;
   amountAllMotorcycles?: number;
   valueSearch: string;
@@ -30,6 +30,8 @@ type HeaderProps = {
   isBack?: boolean;
   title?: string;
   isHideSearch?: boolean;
+  isFavorite?: boolean;
+  setIsFavorite?: () => void;
 };
 
 export const Header: FunctionComponent<HeaderProps> = ({
@@ -43,6 +45,8 @@ export const Header: FunctionComponent<HeaderProps> = ({
   isBack = false,
   title,
   isHideSearch = false,
+  isFavorite,
+  setIsFavorite,
 }) => {
   const { i18n } = useContext(localesContext);
 
@@ -80,7 +84,7 @@ export const Header: FunctionComponent<HeaderProps> = ({
             </View>
           )}
           {title && <Text style={styles.titleHeader}>{title}</Text>}
-          {!isHideSearch ? (
+          {!isHideSearch && setIsShowSearch ? (
             <TouchableOpacity
               style={styles.buttonHeader}
               onPress={() => {
@@ -96,6 +100,18 @@ export const Header: FunctionComponent<HeaderProps> = ({
           ) : (
             <View style={styles.containerEmpty} />
           )}
+          {setIsFavorite ? (
+            <TouchableOpacity
+              style={styles.buttonHeader}
+              onPress={setIsFavorite}
+            >
+              <Fontisto
+                name="favorite"
+                size={30}
+                color={isFavorite ? "gold" : "#0d1138"}
+              />
+            </TouchableOpacity>
+          ) : null}
         </View>
         {isShowSearch && setValueSearch ? (
           <Input

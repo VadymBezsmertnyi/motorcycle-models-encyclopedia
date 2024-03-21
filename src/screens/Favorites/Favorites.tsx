@@ -76,7 +76,7 @@ export const Favorites: FunctionComponent<FavoritesProps> = ({
         title={i18n._("Favorites")}
       />
       <FlatList
-        data={[]}
+        data={showMotorcycles}
         renderItem={renderItem}
         onEndReached={() => {
           setAmountShow((state) => state + 20);

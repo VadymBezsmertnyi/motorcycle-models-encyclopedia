@@ -10,6 +10,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import { motorcyclesContext } from "../MotorcyclesProvider/MotorcyclesProvider";
 
 type FavoritesContext = {
+  favoritesIds: number[];
   favorites: MotorcycleType[];
   setFavorite: (id: number) => Promise<void>;
 };
@@ -70,7 +71,7 @@ export const FavoritesProvider: FunctionComponent<FavoritesProviderProps> = ({
   };
 
   const contextValue: FavoritesContext = useMemo(
-    () => ({ favorites, setFavorite }),
+    () => ({ favorites, favoritesIds, setFavorite }),
     [favorites, favoritesIds]
   );
 
