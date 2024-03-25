@@ -24,4 +24,5 @@ export const styles = StyleSheet.create({
   },
   infoHeader: { fontSize: 12, color: "gray" },
   containerEmpty: { width: 50 },
+  containerRight: { flexDirection: "row", alignItems: "center" },
 });

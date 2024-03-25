@@ -7,6 +7,7 @@ import React, {
 import {
   Modal,
   Platform,
+  Text,
   TouchableOpacity,
   View,
   ViewStyle,
@@ -20,6 +21,7 @@ import { localesContext } from "../../../localization/localization.provider";
 
 // styles
 import { styles } from "./ModalsSheet.styles";
+import { Shadow } from "react-native-shadow-2";
 
 type ModalsSheetProps = {
   isShow?: boolean;
@@ -30,6 +32,7 @@ type ModalsSheetProps = {
   snapPointsProps?: string[];
   isIndicator?: boolean;
   children: JSX.Element;
+  title: string;
 };
 
 export const ModalsSheet: FunctionComponent<ModalsSheetProps> = ({
@@ -41,6 +44,7 @@ export const ModalsSheet: FunctionComponent<ModalsSheetProps> = ({
   snapPointsProps,
   isIndicator = false,
   children,
+  title,
 }) => {
   const { i18n } = useContext(localesContext);
   const handleIndicatorStyle = useMemo(
@@ -56,15 +60,18 @@ export const ModalsSheet: FunctionComponent<ModalsSheetProps> = ({
   }, [snapPointsProps]);
 
   const handleComponent = () => (
-    <View style={styles.header}>
-      <TouchableOpacity
-        accessibilityLabel={i18n._("Button for closing the modal window")}
-        style={styles.buttonHeader}
-        onPress={onClose}
-      >
-        <AntDesign name="close" size={24} color={"black"} />
-      </TouchableOpacity>
-    </View>
+    <Shadow stretch style={styles.shadowHeader}>
+      <View style={styles.header}>
+        <Text style={styles.titleHeader}>{title}</Text>
+        <TouchableOpacity
+          accessibilityLabel={i18n._("Button for closing the modal window")}
+          style={styles.buttonHeader}
+          onPress={onClose}
+        >
+          <AntDesign name="close" size={24} color={"black"} />
+        </TouchableOpacity>
+      </View>
+    </Shadow>
   );
 
   const footerComponent = useCallback(

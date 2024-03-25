@@ -1,7 +1,17 @@
 import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
-  header: { alignItems: "flex-end" },
+  shadowHeader: { borderTopRightRadius: 12, borderTopLeftRadius: 12 },
+  header: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+  },
+  titleHeader: {
+    paddingHorizontal: 16,
+    fontSize: 22,
+    fontWeight: "500",
+  },
   buttonHeader: {
     paddingVertical: 12,
     paddingHorizontal: 16,

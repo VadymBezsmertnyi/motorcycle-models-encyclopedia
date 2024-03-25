@@ -32,6 +32,8 @@ type HeaderProps = {
   isHideSearch?: boolean;
   isFavorite?: boolean;
   setIsFavorite?: () => void;
+  isShowFilter?: boolean;
+  setIsShowFilter?: () => void;
 };
 
 export const Header: FunctionComponent<HeaderProps> = ({
@@ -47,6 +49,8 @@ export const Header: FunctionComponent<HeaderProps> = ({
   isHideSearch = false,
   isFavorite,
   setIsFavorite,
+  isShowFilter,
+  setIsShowFilter,
 }) => {
   const { i18n } = useContext(localesContext);
 
@@ -84,22 +88,36 @@ export const Header: FunctionComponent<HeaderProps> = ({
             </View>
           )}
           {title && <Text style={styles.titleHeader}>{title}</Text>}
-          {!isHideSearch && setIsShowSearch ? (
-            <TouchableOpacity
-              style={styles.buttonHeader}
-              onPress={() => {
-                setIsShowSearch((state) => !state);
-              }}
-            >
-              <AntDesign
-                name="search1"
-                size={30}
-                color={isShowSearch ? "orange" : "black"}
-              />
-            </TouchableOpacity>
-          ) : (
-            <View style={styles.containerEmpty} />
-          )}
+          <View style={styles.containerRight}>
+            {setIsShowFilter ? (
+              <TouchableOpacity
+                style={styles.buttonHeader}
+                onPress={setIsShowFilter}
+              >
+                <Fontisto
+                  name="filter"
+                  size={24}
+                  color={isShowFilter ? "gold" : "#0d1138"}
+                />
+              </TouchableOpacity>
+            ) : null}
+            {!isHideSearch && setIsShowSearch ? (
+              <TouchableOpacity
+                style={styles.buttonHeader}
+                onPress={() => {
+                  setIsShowSearch((state) => !state);
+                }}
+              >
+                <AntDesign
+                  name="search1"
+                  size={30}
+                  color={isShowSearch ? "orange" : "black"}
+                />
+              </TouchableOpacity>
+            ) : (
+              <View style={styles.containerEmpty} />
+            )}
+          </View>
           {setIsFavorite ? (
             <TouchableOpacity
               style={styles.buttonHeader}

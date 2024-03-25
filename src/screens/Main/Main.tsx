@@ -1,14 +1,11 @@
-import React, { FunctionComponent, useContext, useMemo, useState } from "react";
-import {
-  FlatList,
-  Image,
-  ListRenderItem,
-  Text,
-  TouchableOpacity,
-  View,
-} from "react-native";
-import { Fontisto, AntDesign } from "@expo/vector-icons";
-import { Shadow } from "react-native-shadow-2";
+import React, {
+  FunctionComponent,
+  useContext,
+  useEffect,
+  useMemo,
+  useState,
+} from "react";
+import { FlatList, Image, ListRenderItem, View } from "react-native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 
 // types
@@ -17,36 +14,41 @@ import { RootMainScreensParamList } from "../../navigation/Navigators.types";
 
 // providers
 import { motorcyclesContext } from "../../providers/MotorcyclesProvider/MotorcyclesProvider";
-import { localesContext } from "../../../localization/localization.provider";
 
 // components
-import { Input } from "../../components/Input/Input";
 import { RenderItem } from "../../components/RenderItem/RenderItem";
-
-// constants
-import { PATHS_MAIN_SCREENS } from "../../navigation/Navigators.constants";
+import { FilterModal, FilterType } from "./components/FilterModal/FilterModal";
+import { Header } from "../../components/Header/Header";
 
 // images
 import backgroundImage from "../../../assets/images/background.jpeg";
 
 // styles
 import { styles } from "./Main.styles";
-import { Header } from "../../components/Header/Header";
 
 type MainProps = {
   navigation: NativeStackNavigationProp<RootMainScreensParamList>;
 };
 
 export const Main: FunctionComponent<MainProps> = ({ navigation }) => {
-  const { i18n } = useContext(localesContext);
   const { motorcyclesDB } = useContext(motorcyclesContext);
   const [isShowSearch, setIsShowSearch] = useState(false);
+  const [isShowFilter, setIsShowFilter] = useState(false);
   const [valueSearch, setValueSearch] = useState("");
   const [amountShow, setAmountShow] = useState(20);
-
+  const [filter, setFilter] = useState<FilterType | null>(null);
   const showMotorcycles = useMemo(
     () =>
       motorcyclesDB
+        .filter((moto) =>
+          filter
+            ? filter.selectBrands.length
+              ? filter.selectBrands.includes(moto.Brand)
+              : true &&
+                moto.Year >= filter.selectYears.min &&
+                moto.Year <= filter.selectYears.max
+            : true
+        )
         .filter((moto) =>
           valueSearch.length
             ? moto.Brand.toLocaleLowerCase().includes(
@@ -58,7 +60,7 @@ export const Main: FunctionComponent<MainProps> = ({ navigation }) => {
             : moto
         )
         .splice(0, amountShow),
-    [motorcyclesDB, valueSearch, amountShow]
+    [motorcyclesDB, valueSearch, amountShow, filter]
   );
   const amountShowMotorcycles = useMemo(
     () => showMotorcycles.length,
@@ -75,26 +77,42 @@ export const Main: FunctionComponent<MainProps> = ({ navigation }) => {
     );
   };
 
+  useEffect(() => {
+    setAmountShow(20);
+  }, [filter]);
+
   return (
-    <View style={styles.container}>
-      <Image source={backgroundImage} style={styles.imageBackground} />
-      <Header
-        navigation={navigation}
-        isShowSearch={isShowSearch}
-        setIsShowSearch={setIsShowSearch}
-        valueSearch={valueSearch}
-        setValueSearch={setValueSearch}
-        amountShowMotorcycles={amountShowMotorcycles}
-        amountAllMotorcycles={amountAllMotorcycles}
+    <>
+      <View style={styles.container}>
+        <Image source={backgroundImage} style={styles.imageBackground} />
+        <Header
+          navigation={navigation}
+          isShowSearch={isShowSearch}
+          setIsShowSearch={setIsShowSearch}
+          valueSearch={valueSearch}
+          setValueSearch={setValueSearch}
+          amountShowMotorcycles={amountShowMotorcycles}
+          amountAllMotorcycles={amountAllMotorcycles}
+          isShowFilter={isShowFilter}
+          setIsShowFilter={() => {
+            setIsShowFilter(true);
+          }}
+        />
+        <FlatList
+          data={showMotorcycles}
+          renderItem={renderItem}
+          onEndReached={() => {
+            setAmountShow((state) => state + 20);
+          }}
+          contentContainerStyle={styles.containerList}
+        />
+      </View>
+      <FilterModal
+        isShowFilter={isShowFilter}
+        setIsShowFilter={setIsShowFilter}
+        filterState={filter}
+        onSubmit={setFilter}
       />
-      <FlatList
-        data={showMotorcycles}
-        renderItem={renderItem}
-        onEndReached={() => {
-          setAmountShow((state) => state + 20);
-        }}
-        contentContainerStyle={styles.containerList}
-      />
-    </View>
+    </>
   );
 };

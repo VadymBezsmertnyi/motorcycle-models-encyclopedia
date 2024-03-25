@@ -6,7 +6,11 @@ import { MotorcycleType } from "./MotorcyclesProvider.types";
 
 type MotorcyclesContext = {
   motorcyclesDB: MotorcycleType[];
-  brans: string[];
+  brands: string[];
+  minMaxYears: {
+    min: number;
+    max: number;
+  };
 };
 
 type MotorcyclesProviderProps = {
@@ -26,7 +30,7 @@ export const MotorcyclesProvider: FunctionComponent<
       })) as MotorcycleType[],
     []
   );
-  const brans = useMemo(
+  const brands = useMemo(
     () =>
       motorcyclesDB.reduce<string[]>(
         (state, next) =>
@@ -35,10 +39,21 @@ export const MotorcyclesProvider: FunctionComponent<
       ),
     [motorcyclesDB]
   );
+  const minMaxYears = useMemo(
+    () =>
+      motorcyclesDB.reduce<{ min: number; max: number }>(
+        (state, next) => ({
+          min: state.min > next.Year ? next.Year : state.min,
+          max: state.max < next.Year ? next.Year : state.max,
+        }),
+        { min: 2024, max: 0 }
+      ),
+    [motorcyclesDB]
+  );
 
   const contextValue: MotorcyclesContext = useMemo(
-    () => ({ motorcyclesDB, brans }),
-    [motorcyclesDB, brans]
+    () => ({ motorcyclesDB, brands, minMaxYears }),
+    [motorcyclesDB, brands, minMaxYears]
   );
 
   return (
