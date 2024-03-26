@@ -46,7 +46,10 @@ export const Main: FunctionComponent<MainProps> = ({ navigation }) => {
               ? filter.selectBrands.includes(moto.Brand)
               : true &&
                 moto.Year >= filter.selectYears.min &&
-                moto.Year <= filter.selectYears.max
+                moto.Year <= filter.selectYears.max &&
+                filter.selectCategories.length
+              ? filter.selectCategories.includes(moto.Category)
+              : true
             : true
         )
         .filter((moto) =>

@@ -7,6 +7,7 @@ import { MotorcycleType } from "./MotorcyclesProvider.types";
 type MotorcyclesContext = {
   motorcyclesDB: MotorcycleType[];
   brands: string[];
+  categories: string[];
   minMaxYears: {
     min: number;
     max: number;
@@ -50,10 +51,19 @@ export const MotorcyclesProvider: FunctionComponent<
       ),
     [motorcyclesDB]
   );
+  const categories = useMemo(
+    () =>
+      motorcyclesDB.reduce(
+        (state, next) =>
+          state.includes(next.Category) ? state : [...state, next.Category],
+        [] as string[]
+      ),
+    [motorcyclesDB]
+  );
 
   const contextValue: MotorcyclesContext = useMemo(
-    () => ({ motorcyclesDB, brands, minMaxYears }),
-    [motorcyclesDB, brands, minMaxYears]
+    () => ({ motorcyclesDB, brands, minMaxYears, categories }),
+    [motorcyclesDB, brands, minMaxYears, categories]
   );
 
   return (

@@ -32,6 +32,7 @@ export type FilterType = {
     min: number;
     max: number;
   };
+  selectCategories: string[];
 };
 
 type FilterModalProps = {
@@ -48,11 +49,13 @@ export const FilterModal: FunctionComponent<FilterModalProps> = ({
   onSubmit,
 }) => {
   const { i18n } = useContext(localesContext);
-  const { brands, minMaxYears } = useContext(motorcyclesContext);
+  const { brands, minMaxYears, categories } = useContext(motorcyclesContext);
   const [selectBrands, setSelectBrands] = useState<string[]>([]);
+  const [selectCategories, setSelectCategories] = useState<string[]>([]);
   const [selectYears, setSelectYears] = useState({ min: 0, max: 0 });
   const [amountShow, setAmountShow] = useState(20);
   const [name, setName] = useState("");
+  const [nameCategory, setNameCategory] = useState("");
   const showBrands = useMemo(
     () =>
       (name.length
@@ -63,11 +66,24 @@ export const FilterModal: FunctionComponent<FilterModalProps> = ({
       ).splice(0, amountShow),
     [name, brands, amountShow]
   );
+  const showCategories = useMemo(
+    () =>
+      nameCategory.length
+        ? categories.filter((category) =>
+            category
+              .toLocaleLowerCase()
+              .includes(nameCategory.toLocaleLowerCase())
+          )
+        : categories,
+    [nameCategory, categories]
+  );
 
   const onReset = () => {
     setName("");
+    setNameCategory("");
     setSelectBrands([]);
     setSelectYears(minMaxYears);
+    setSelectCategories([]);
   };
 
   const onSave = () => {
@@ -85,11 +101,11 @@ export const FilterModal: FunctionComponent<FilterModalProps> = ({
           max: minMaxYears.max,
         })
       );
-    onSubmit({ selectBrands, selectYears });
+    onSubmit({ selectBrands, selectYears, selectCategories });
     return setIsShowFilter(false);
   };
 
-  const renderItem: ListRenderItem<string> = ({ item, index }) => {
+  const renderBrand: ListRenderItem<string> = ({ item, index }) => {
     const isSelect = selectBrands.includes(item);
     return (
       <TouchableOpacity
@@ -106,6 +122,29 @@ export const FilterModal: FunctionComponent<FilterModalProps> = ({
               state.filter((selectBrand) => selectBrand !== item)
             );
           else setSelectBrands((state) => [...state, item]);
+        }}
+      >
+        <Text style={styles.titleItemBrand}>{item}</Text>
+      </TouchableOpacity>
+    );
+  };
+  const renderCategory: ListRenderItem<string> = ({ item, index }) => {
+    const isSelect = selectCategories.includes(item);
+    return (
+      <TouchableOpacity
+        key={`category-${index + 1}`}
+        style={[
+          styles.itemBrand,
+          {
+            backgroundColor: isSelect ? "green" : "transparent",
+          },
+        ]}
+        onPress={() => {
+          if (isSelect)
+            setSelectCategories((state) =>
+              state.filter((selectCategory) => selectCategory !== item)
+            );
+          else setSelectCategories((state) => [...state, item]);
         }}
       >
         <Text style={styles.titleItemBrand}>{item}</Text>
@@ -146,7 +185,7 @@ export const FilterModal: FunctionComponent<FilterModalProps> = ({
             <FlatList
               data={showBrands}
               horizontal
-              renderItem={renderItem}
+              renderItem={renderBrand}
               onEndReached={() => {
                 setAmountShow((state) => state + 20);
               }}
@@ -205,6 +244,47 @@ export const FilterModal: FunctionComponent<FilterModalProps> = ({
                 max: minMaxYears.max,
               })}
             </Text>
+          </View>
+          <View style={styles.containerEmpty} />
+          <View style={styles.containerBrands}>
+            <View style={styles.containerTitleBrands}>
+              <Text style={styles.titleBrands}>{i18n._("Categories:")}</Text>
+              <Input
+                placeholder={i18n._("Enter brand")}
+                value={nameCategory}
+                onChange={setNameCategory}
+                customStyles={styles.inputBrands}
+              />
+            </View>
+            <FlatList
+              data={showCategories}
+              horizontal
+              renderItem={renderCategory}
+              onEndReached={() => {
+                setAmountShow((state) => state + 20);
+              }}
+              contentContainerStyle={styles.containerScrollBrands}
+            />
+            <View style={styles.containerSelected}>
+              <Text style={styles.titleSelected}>
+                {i18n._("Selected brands({amountSelectedBrands})", {
+                  amountSelectedBrands: selectCategories.length,
+                })}
+                :{" "}
+              </Text>
+              {selectCategories.map((category, index) => {
+                const isEnd = selectCategories.length - 1 === index;
+                return (
+                  <Text
+                    key={`select-brand-${index + 1}`}
+                    style={styles.itemSelected}
+                  >
+                    {category}
+                    {isEnd ? "" : ", "}
+                  </Text>
+                );
+              })}
+            </View>
           </View>
           <View style={styles.containerEmpty} />
           <View style={styles.containerButtons}>
