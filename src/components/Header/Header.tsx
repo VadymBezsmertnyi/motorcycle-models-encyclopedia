@@ -75,7 +75,7 @@ export const Header: FunctionComponent<HeaderProps> = ({
                   navigation.navigate(PATHS_MAIN_SCREENS.favorites);
                 }}
               >
-                <Fontisto name="favorite" size={30} color="#0d1138" />
+                <Fontisto name="favorite" size={30} color={"#0000fc"} />
               </TouchableOpacity>
               <TouchableOpacity
                 style={styles.buttonHeader}
@@ -83,7 +83,7 @@ export const Header: FunctionComponent<HeaderProps> = ({
                   navigation.navigate(PATHS_MAIN_SCREENS.settings);
                 }}
               >
-                <AntDesign name="setting" size={30} color="#0d1138" />
+                <AntDesign name="setting" size={30} color="#267821" />
               </TouchableOpacity>
             </View>
           )}
@@ -97,7 +97,7 @@ export const Header: FunctionComponent<HeaderProps> = ({
                 <Fontisto
                   name="filter"
                   size={24}
-                  color={isShowFilter ? "gold" : "#0d1138"}
+                  color={isShowFilter ? "gold" : "#a3b9a0"}
                 />
               </TouchableOpacity>
             ) : null}
@@ -111,7 +111,7 @@ export const Header: FunctionComponent<HeaderProps> = ({
                 <AntDesign
                   name="search1"
                   size={30}
-                  color={isShowSearch ? "orange" : "black"}
+                  color={isShowSearch ? "orange" : "#a39cd5"}
                 />
               </TouchableOpacity>
             ) : (

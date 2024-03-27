@@ -62,7 +62,9 @@ export const ModalsSheet: FunctionComponent<ModalsSheetProps> = ({
   const handleComponent = () => (
     <Shadow stretch style={styles.shadowHeader}>
       <View style={styles.header}>
-        <Text style={styles.titleHeader}>{title}</Text>
+        <Text numberOfLines={1} style={styles.titleHeader}>
+          {title}
+        </Text>
         <TouchableOpacity
           accessibilityLabel={i18n._("Button for closing the modal window")}
           style={styles.buttonHeader}

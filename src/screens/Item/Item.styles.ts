@@ -8,7 +8,7 @@ export const styles = StyleSheet.create({
     height: "100%",
     opacity: 0.2,
   },
-  containerMain: { flex: 1, padding: 20, paddingHorizontal: 15, gap: 10 },
+  containerMain: { padding: 20, paddingHorizontal: 15, gap: 10 },
   mainInfo: {
     alignItems: "center",
     gap: 5,
@@ -21,5 +21,15 @@ export const styles = StyleSheet.create({
     fontSize: 18,
     textTransform: "uppercase",
     fontWeight: "700",
+  },
+  button: {
+    backgroundColor: "green",
+    alignItems: "center",
+    padding: 15,
+    borderRadius: 10,
+  },
+  titleButton: {
+    fontSize: 18,
+    color: "white",
   },
 });

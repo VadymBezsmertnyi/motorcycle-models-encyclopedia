@@ -8,6 +8,7 @@ export const styles = StyleSheet.create({
     justifyContent: "space-between",
   },
   titleHeader: {
+    width: "80%",
     paddingHorizontal: 16,
     fontSize: 22,
     fontWeight: "500",

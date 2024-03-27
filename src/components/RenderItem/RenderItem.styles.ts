@@ -13,7 +13,7 @@ export const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    backgroundColor: "#ffffffe6",
+    backgroundColor: "#b1bd67e3",
     padding: 6,
   },
   partItem: {

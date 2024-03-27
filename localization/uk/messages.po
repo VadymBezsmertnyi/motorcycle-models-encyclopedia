@@ -22,6 +22,14 @@ msgid "Displayed {amountShowMotorcycles} motorcycles out of {amountAllMotorcycle
 msgstr "Показано {amountShowMotorcycles} мотоциклів з {amountAllMotorcycles}"
 
 #. js-lingui-explicit-id
+msgid "Button for closing the modal window"
+msgstr "Кнопка для закриття модального вікна"
+
+#. js-lingui-explicit-id
+msgid "Background overlay for closing the modal window"
+msgstr "Фоновий налив для закриття модального вікна"
+
+#. js-lingui-explicit-id
 msgid "Brand"
 msgstr "Марка"
 
@@ -44,6 +52,10 @@ msgstr "Улюблені"
 #. js-lingui-explicit-id
 msgid "No data available"
 msgstr "Дані відсутні"
+
+#. js-lingui-explicit-id
+msgid "Search {brand} {model}"
+msgstr "Пошук {brand} {model}"
 
 #. js-lingui-explicit-id
 msgid "year the motorcycle was built"
@@ -112,6 +124,54 @@ msgstr "Тип трансмісії"
 #. js-lingui-explicit-id
 msgid "Types include: hydraulic automatic transmission, continuously variable transmission, and dual-clutch automatic transmissions"
 msgstr "Типи включають: гідравлічну автоматичну трансмісію, безступінчасту трансмісію та двоспособову автоматичну трансмісію"
+
+#. js-lingui-explicit-id
+msgid "Find detailed information on the internet"
+msgstr "Знайдіть детальну інформацію в Інтернеті"
+
+#. js-lingui-explicit-id
+msgid "Years min: {min}, max: {max}"
+msgstr "Мінімум роки: {min}, максимум: {max}"
+
+#. js-lingui-explicit-id
+msgid "Filter"
+msgstr "Фільтр"
+
+#. js-lingui-explicit-id
+msgid "Brands:"
+msgstr "Бренди:"
+
+#. js-lingui-explicit-id
+msgid "Enter brand"
+msgstr "Введіть бренд"
+
+#. js-lingui-explicit-id
+msgid "Selected brands({amountSelectedBrands})"
+msgstr "Обрані бренди ({amountSelectedBrands})"
+
+#. js-lingui-explicit-id
+msgid "Years:"
+msgstr "Роки:"
+
+#. js-lingui-explicit-id
+msgid " - to - "
+msgstr " - до - "
+
+#. js-lingui-explicit-id
+msgid "Min: {min}, max: {max}"
+msgstr "Мінімум: {min}, максимум: {max}"
+
+#. js-lingui-explicit-id
+msgid "Categories:"
+msgstr "Категорії:"
+
+#. js-lingui-explicit-id
+msgid "Reset"
+msgstr "Скинути"
+
+#. js-lingui-explicit-id
+msgid "Save"
+msgstr "Зберегти"
 
 #. js-lingui-explicit-id
 msgid "Settings"

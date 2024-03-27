@@ -19,8 +19,7 @@ export const styles = StyleSheet.create({
     paddingHorizontal: 8,
   },
   titleHeader: {
-    fontSize: 22,
-    textTransform: "uppercase",
+    fontSize: 18,
   },
   infoHeader: { fontSize: 12, color: "gray" },
   containerEmpty: { width: 50 },

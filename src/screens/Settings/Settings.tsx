@@ -1,5 +1,5 @@
 import React, { FunctionComponent, useContext, useMemo } from "react";
-import { Text, TouchableOpacity, View } from "react-native";
+import { Image, Text, TouchableOpacity, View } from "react-native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 
 // types
@@ -13,6 +13,9 @@ import { Header } from "../../components/Header/Header";
 
 // constants
 import { languages } from "../../../localization/localization.const";
+
+// images
+import backgroundImage from "../../../assets/images/background_settings.jpeg";
 
 // styles
 import { styles } from "./Settings.styles";
@@ -40,6 +43,7 @@ export const Settings: FunctionComponent<SettingsProps> = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
+      <Image source={backgroundImage} style={styles.imageBackground} />
       <Header
         navigation={navigation}
         isShowSearch={false}
