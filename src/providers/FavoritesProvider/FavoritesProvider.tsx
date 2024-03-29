@@ -37,7 +37,7 @@ export const FavoritesProvider: FunctionComponent<FavoritesProviderProps> = ({
     const favoritesIds = favoritesIdsJSON
       ? (JSON.parse(favoritesIdsJSON) as number[])
       : [];
-    const favoritesMotorcycles = motorcyclesDB.filter((moto) =>
+    const favoritesMotorcycles = [...motorcyclesDB].filter((moto) =>
       moto.id ? favoritesIds.includes(moto.id) : false
     );
 
@@ -48,11 +48,11 @@ export const FavoritesProvider: FunctionComponent<FavoritesProviderProps> = ({
   const setFavorite = async (id: number) => {
     const isFavorite = favoritesIds.includes(id);
     if (isFavorite) {
-      const newFavoritesIds = favoritesIds.filter(
+      const newFavoritesIds = [...favoritesIds].filter(
         (idFavorite) => idFavorite !== id
       );
       setFavoritesIds(newFavoritesIds);
-      setFavorites((state) => state.filter((moto) => moto.id !== id));
+      setFavorites((state) => [...state].filter((moto) => moto.id !== id));
       await AsyncStorage.setItem(
         KEY_STORAGE_FAVORITES_IDS,
         JSON.stringify(newFavoritesIds)

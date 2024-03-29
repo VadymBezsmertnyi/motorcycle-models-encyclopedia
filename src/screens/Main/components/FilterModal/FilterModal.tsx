@@ -59,22 +59,22 @@ export const FilterModal: FunctionComponent<FilterModalProps> = ({
   const showBrands = useMemo(
     () =>
       (name.length
-        ? brands.filter((brand) =>
+        ? [...brands].filter((brand) =>
             brand.toLocaleLowerCase().includes(name.toLocaleLowerCase())
           )
-        : brands
+        : [...brands]
       ).splice(0, amountShow),
     [name, brands, amountShow]
   );
   const showCategories = useMemo(
     () =>
       nameCategory.length
-        ? categories.filter((category) =>
+        ? [...categories].filter((category) =>
             category
               .toLocaleLowerCase()
               .includes(nameCategory.toLocaleLowerCase())
           )
-        : categories,
+        : [...categories],
     [nameCategory, categories]
   );
 
@@ -119,7 +119,7 @@ export const FilterModal: FunctionComponent<FilterModalProps> = ({
         onPress={() => {
           if (isSelect)
             setSelectBrands((state) =>
-              state.filter((selectBrand) => selectBrand !== item)
+              [...state].filter((selectBrand) => selectBrand !== item)
             );
           else setSelectBrands((state) => [...state, item]);
         }}
@@ -142,7 +142,7 @@ export const FilterModal: FunctionComponent<FilterModalProps> = ({
         onPress={() => {
           if (isSelect)
             setSelectCategories((state) =>
-              state.filter((selectCategory) => selectCategory !== item)
+              [...state].filter((selectCategory) => selectCategory !== item)
             );
           else setSelectCategories((state) => [...state, item]);
         }}

@@ -39,7 +39,7 @@ export const Main: FunctionComponent<MainProps> = ({ navigation }) => {
   const [filter, setFilter] = useState<FilterType | null>(null);
   const showMotorcycles = useMemo(
     () =>
-      motorcyclesDB
+      [...motorcyclesDB]
         .filter((moto) =>
           filter
             ? filter.selectBrands.length

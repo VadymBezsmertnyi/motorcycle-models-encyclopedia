@@ -15,7 +15,7 @@
     "assetBundlePatterns": ["**/*"],
     "ios": {
       "runtimeVersion": "1.0.0",
-      "buildNumber": "5",
+      "buildNumber": "6",
       "supportsTablet": false,
       "bundleIdentifier": "com.fe1233dd.motorcycle-models-encyclopedia",
       "config": {
