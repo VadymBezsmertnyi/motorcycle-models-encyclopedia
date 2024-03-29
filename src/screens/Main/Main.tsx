@@ -42,14 +42,14 @@ export const Main: FunctionComponent<MainProps> = ({ navigation }) => {
       [...motorcyclesDB]
         .filter((moto) =>
           filter
-            ? filter.selectBrands.length
-              ? filter.selectBrands.includes(moto.Brand)
-              : true &&
-                moto.Year >= filter.selectYears.min &&
-                moto.Year <= filter.selectYears.max &&
-                filter.selectCategories.length
-              ? filter.selectCategories.includes(moto.Category)
-              : true
+            ? (filter.selectBrands.length
+                ? filter.selectBrands.includes(moto.Brand)
+                : true) &&
+              moto.Year >= filter.selectYears.min &&
+              moto.Year <= filter.selectYears.max &&
+              (filter.selectCategories.length
+                ? filter.selectCategories.includes(moto.Category)
+                : true)
             : true
         )
         .filter((moto) =>
