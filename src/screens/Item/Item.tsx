@@ -134,16 +134,6 @@ export const Item: FunctionComponent<ItemProps> = ({ navigation, route }) => {
               "Types include: hydraulic automatic transmission, continuously variable transmission, and dual-clutch automatic transmissions"
             )}
           />
-          <TouchableOpacity
-            style={styles.button}
-            onPress={() => {
-              setIsSearch(true);
-            }}
-          >
-            <Text style={styles.titleButton}>
-              {i18n._("Find detailed information on the internet")}
-            </Text>
-          </TouchableOpacity>
         </ScrollView>
       </View>
       {isSearch ? (
